@@ -12,6 +12,22 @@ app.use('/css', express.static(path.join(__dirname, 'css')));
 //  if (req.url === '/report') {
 //
 
+app.get('/features/:featureName', (req, res) => {
+  const featureName = req.params.featureName;
+  const featurePath = path.join(__dirname, 'features', featureName);
+
+  fs.readFile(featurePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end(data);
+  });
+});
+
 app.get('/report', (req, res) => {
   const filePath = path.join(__dirname, 'reports', 'report.json');
 
@@ -50,12 +66,12 @@ app.get('/report', (req, res) => {
         <h1>Cucumber JSON Report</h1>
           ${jsonData.map(feature => feature.elements.map(element => `
             <div class="feature">${feature.name}</div>
-            <div class="featureUri">${feature.uri}</div>
+            <div class="featureUri"><a href="${feature.uri}">${feature.uri}</a></div>
 
             ${element.steps.map(step => `
               <div class="step ${step.result.status}">
                 ${step.keyword} 
-                ${step.result.status}
+                ${(step.name ? step.name : "")}
                 ${step.result.error_message ? `<div class="error">${step.result.error_message}</div>`: ``}
               </div>
             `).join('')}
@@ -63,11 +79,15 @@ app.get('/report', (req, res) => {
           `)).join('')}
           </tbody>
         </table>
-        <pre>${jsonData.toString()}</pre>
       </body>
       </html>
     `);
     });
+});
+
+app.get('/', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end("Hello, World!");
 });
 
 // Set up the server

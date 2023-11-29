@@ -16,17 +16,6 @@
         "type": "scenario",
         "steps": [
           {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "step_definitions/common.js:4"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
             "arguments": [],
             "keyword": "Given ",
             "line": 4,
@@ -36,7 +25,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 208000000
+              "duration": 44000000
             }
           },
           {
@@ -45,11 +34,11 @@
             "line": 5,
             "name": "the response status code should be 200",
             "match": {
-              "location": "step_definitions/badstudio.js:42"
+              "location": "step_definitions/badstudio.js:41"
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           },
           {
@@ -58,12 +47,11 @@
             "line": 6,
             "name": "page should contain \"about\"",
             "match": {
-              "location": "step_definitions/common.js:8"
+              "location": "step_definitions/badstudio.js:53"
             },
             "result": {
-              "status": "failed",
-              "duration": 1000000,
-              "error_message": "AssertionError [ERR_ASSERTION]: Expected text \"about\" not found on the page\n    + expected - actual\n\n    -false\n    +true\n\n    at World.<anonymous> (/Users/thomaskjelsrud/Public/my-web-server/step_definitions/common.js:9:12)"
+              "status": "passed",
+              "duration": 0
             }
           }
         ]
@@ -87,17 +75,6 @@
         "type": "scenario",
         "steps": [
           {
-            "keyword": "Before",
-            "hidden": true,
-            "match": {
-              "location": "step_definitions/common.js:4"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
             "arguments": [],
             "keyword": "Given ",
             "line": 4,
@@ -107,7 +84,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3000000
+              "duration": 56000000
             }
           },
           {
@@ -120,7 +97,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 7000000
+              "duration": 4000000
             }
           },
           {
@@ -133,7 +110,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           }
         ]
