@@ -1,0 +1,22 @@
+.feature {
+    font-weight: bold;
+    float: left;
+}
+
+.featureUri {
+    float: left;
+    margin-left: 20px;
+}
+
+.step {
+    clear: both;
+    background-color: lightgrey;
+}
+
+.passed {
+    color: green;
+}
+
+.failed {
+    color: red;
+}

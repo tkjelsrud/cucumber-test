@@ -1,0 +1,143 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Check website status",
+    "line": 1,
+    "id": "check-website-status",
+    "tags": [],
+    "uri": "features/badstudio.feature",
+    "elements": [
+      {
+        "id": "check-website-status;verify-badstudio.no-is-online",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Verify badstudio.no is online",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/common.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "site \"https://www.badstudio.no/\" is online",
+            "match": {
+              "location": "step_definitions/badstudio.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 208000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "the response status code should be 200",
+            "match": {
+              "location": "step_definitions/badstudio.js:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "page should contain \"about\"",
+            "match": {
+              "location": "step_definitions/common.js:8"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "AssertionError [ERR_ASSERTION]: Expected text \"about\" not found on the page\n    + expected - actual\n\n    -false\n    +true\n\n    at World.<anonymous> (/Users/thomaskjelsrud/Public/my-web-server/step_definitions/common.js:9:12)"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Feature",
+    "name": "Sample Feature",
+    "line": 1,
+    "id": "sample-feature",
+    "tags": [],
+    "uri": "features/sample.feature",
+    "elements": [
+      {
+        "id": "sample-feature;testing-the-web-server",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Testing the web server",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/common.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the server is running",
+            "match": {
+              "location": "step_definitions/sample.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I make a request to the server",
+            "match": {
+              "location": "step_definitions/sample.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "the response should contain \"Hello, World!\"",
+            "match": {
+              "location": "step_definitions/sample.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

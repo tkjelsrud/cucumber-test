@@ -1,9 +1,11 @@
 const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
 const https = require('https');
+const commonSteps = require('./common');
 
 let response;
-
+let data = '';
+let pageContent = '';
 
 Given('site {string} is online', function(websiteUrl, callback) {
     const url = new URL(websiteUrl);
@@ -16,6 +18,16 @@ Given('site {string} is online', function(websiteUrl, callback) {
 
   const req = https.request(requestOptions, (res) => {
     response = res;
+
+    response.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    response.on('end', () => {
+        pageContent = data;
+        callback();
+    });
+
     callback();
   });
 
@@ -30,3 +42,15 @@ Given('site {string} is online', function(websiteUrl, callback) {
 Then('the response status code should be {int}', function(expectedStatusCode) {
   assert.equal(response.statusCode, expectedStatusCode);
 });
+
+/*Then('page should contain {string}', function(containStr, callback) {
+    response.on('data', (chunk) => {
+        data += chunk;
+    });
+    console.log(data);
+    assert.match(data, new RegExp(containStr));
+});*/
+
+/*Then('page should contain {string}', function(expectedText) {
+    assert.ok(pageContent.includes(expectedText), `Expected text "${expectedText}" not found on the page`);
+});*/

@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js features --require step_definitions"
+    "test": "./node_modules/cucumber/bin/cucumber-js features --require step_definitions --format=json:reports/report.json",
+    "report": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cucumber": "^6.0.7"
+    "cucumber": "^6.0.7",
+    "cucumber-html-reporter": "^6.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
